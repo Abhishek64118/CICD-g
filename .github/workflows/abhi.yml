@@ -37,8 +37,8 @@ jobs:
           name: tfplan
           path: tfplan
 
-  apply:
-    name: Terraform Apply
+  destroy:
+    name: Terraform Destroy
     runs-on: ubuntu-latest
     needs: plan
     environment: production   # 👈 requires manual approval
@@ -63,5 +63,5 @@ jobs:
         with:
           name: tfplan
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve tfplan
